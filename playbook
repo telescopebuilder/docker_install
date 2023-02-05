@@ -1,0 +1,6 @@
+---
+- name: Install Docker Engine and make docker a sudo user
+  hosts: localhost
+  tasks:
+    - name: Install Docker Engine
+      shell: bash install_docker.sh
