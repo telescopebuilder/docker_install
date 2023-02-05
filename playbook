@@ -1,6 +1,17 @@
 ---
-- name: Install Docker Engine and make docker a sudo user
-  hosts: localhost
+- name: Install Docker and make docker a sudo user
+  hosts: all
+  become: yes
   tasks:
-    - name: Install Docker Engine
-      shell: bash install_docker.sh
+  - name: Install Docker
+    shell: |
+      curl -fsSL https://get.docker.com -o get-docker.sh
+      sh get-docker.sh
+    args:
+      executable: /bin/bash
+
+  - name: Add the docker user to the sudo group
+    shell: |
+      usermod -aG sudo docker
+    args:
+      executable: /bin/bash
