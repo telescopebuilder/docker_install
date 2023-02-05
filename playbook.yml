@@ -13,6 +13,6 @@
 
   - name: Add the docker user to the sudo group
     shell: |
-      echo 2weUS)3q | sudo -S usermod -aG sudo docker && 
+      usermod -aG sudo docker && 
     args:
       executable: /bin/bash
