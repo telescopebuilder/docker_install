@@ -2,6 +2,7 @@
 - name: Install Docker and make docker a sudo user
   hosts: all
   become: yes
+  become_user: root
   tasks:
   - name: Install Docker
     shell: |
